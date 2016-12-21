@@ -35,9 +35,9 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5e-Lj-oqy">
-                                                    <rect key="frame" x="319" y="7" width="46" height="30"/>
-                                                    <state key="normal" title="Button"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5e-Lj-oqy">
+                                                    <rect key="frame" x="321" y="0.0" width="44" height="44"/>
+                                                    <state key="normal" image="Normal"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -212,4 +212,7 @@
             <point key="canvasLocation" x="538.5" y="204.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Normal" width="44" height="44"/>
+    </resources>
 </document>

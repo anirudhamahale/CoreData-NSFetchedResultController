@@ -53,6 +53,12 @@ class ViewController: UIViewController {
         if let done = record.valueForKey("done") as? Bool {
             cell.button.selected = done
         }
+        
+        cell.didTapButtonHandler = {
+            if let done = record.valueForKey("done") as? Bool {
+                record.setValue(!done, forKey: "done")
+            }
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

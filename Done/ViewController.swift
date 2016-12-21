@@ -113,6 +113,20 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Fetch Records
+            let record = fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
+            
+            // Delete Records
+            managedObjectContext.deleteObject(record)
+        }
+    }
 }
 
 extension ViewController: NSFetchedResultsControllerDelegate {

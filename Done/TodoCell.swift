@@ -10,6 +10,9 @@ import UIKit
 
 class TodoCell: UITableViewCell {
 
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var button: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -1,5 +1,5 @@
 //
-//  AddTodoViewController.swift
+//  UpdateToDoViewController.swift
 //  Done
 //
 //  Created by LA Argon on 12/21/16.
@@ -9,14 +9,18 @@
 import UIKit
 import CoreData
 
-class AddTodoViewController: UIViewController {
+class UpdateToDoViewController: UIViewController {
 
-    @IBOutlet weak var textField: UITextField!
+    var record: NSManagedObject!
     var managedObjectContext: NSManagedObjectContext!
+    
+    @IBOutlet weak var textField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let name = record.valueForKey("name") as? String {
+            textField.text = name
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -25,30 +29,22 @@ class AddTodoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func cancelButton(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancel(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
     }
 
-    @IBAction func doneButton(sender: AnyObject) {
+    @IBAction func save(sender: AnyObject) {
         let name = textField.text
-        
         if let isEmpty = name?.isEmpty where isEmpty == false {
-            // Create Entity
-            let entity = NSEntityDescription.entityForName("Item", inManagedObjectContext: self.managedObjectContext)
-            
-            // Initialize Record
-            let record = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: self.managedObjectContext)
-            
-            // Populate Record
+            // update record
             record.setValue(name, forKey: "name")
-            record.setValue(NSDate(), forKey: "createdAt")
             
             do {
                 // save record
                 try record.managedObjectContext?.save()
                 
-                // dismiss view controller
-                self.dismissViewControllerAnimated(true, completion: nil)
+                // dismiss the view controller
+                navigationController?.popViewControllerAnimated(true)
             } catch let err as NSError {
                 print("\(err), \(err.userInfo)")
                 showAlertMessage("Warning", message: "Your to-do could not be saved.")
@@ -58,8 +54,8 @@ class AddTodoViewController: UIViewController {
         }
     }
     
-    private func showAlertMessage(title: String, message messsage: String) {
-        let alert = UIAlertController(title: title, message: messsage, preferredStyle: .Alert)
+    private func showAlertMessage(title: String, message msg: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .Cancel, handler: nil))
         
         presentViewController(alert, animated: true, completion: nil)

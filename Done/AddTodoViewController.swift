@@ -23,6 +23,7 @@ class AddTodoViewController: UIViewController {
         let randomIndex = Int(arc4random_uniform(UInt32(array.count)))
         
         name = array[randomIndex]
+        nameLabel.text = name
         // Do any additional setup after loading the view.
     }
     

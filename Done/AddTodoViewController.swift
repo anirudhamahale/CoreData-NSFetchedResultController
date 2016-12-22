@@ -10,16 +10,22 @@ import UIKit
 import CoreData
 
 class AddTodoViewController: UIViewController {
-
-    @IBOutlet weak var textField: UITextField!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    var name = ""
     var managedObjectContext: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let array = ["Iron Man", "Captain America", "Hunk", "Black Widow", "Thor", "Clint Barton"]
+        let randomIndex = Int(arc4random_uniform(UInt32(array.count)))
+        
+        name = array[randomIndex]
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -28,33 +34,27 @@ class AddTodoViewController: UIViewController {
     @IBAction func cancelButton(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
     @IBAction func doneButton(sender: AnyObject) {
-        let name = textField.text
+        // Create Entity
+        let entity = NSEntityDescription.entityForName("Item", inManagedObjectContext: self.managedObjectContext)
         
-        if let isEmpty = name?.isEmpty where isEmpty == false {
-            // Create Entity
-            let entity = NSEntityDescription.entityForName("Item", inManagedObjectContext: self.managedObjectContext)
+        // Initialize Record
+        let record = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: self.managedObjectContext)
+        
+        // Populate Record
+        record.setValue(name, forKey: "name")
+        record.setValue(NSDate(), forKey: "createdAt")
+        
+        do {
+            // save record
+            try record.managedObjectContext?.save()
             
-            // Initialize Record
-            let record = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: self.managedObjectContext)
-            
-            // Populate Record
-            record.setValue(name, forKey: "name")
-            record.setValue(NSDate(), forKey: "createdAt")
-            
-            do {
-                // save record
-                try record.managedObjectContext?.save()
-                
-                // dismiss view controller
-                self.dismissViewControllerAnimated(true, completion: nil)
-            } catch let err as NSError {
-                print("\(err), \(err.userInfo)")
-                showAlertMessage("Warning", message: "Your to-do could not be saved.")
-            }
-        } else {
-            showAlertMessage("Warning", message: "Your to-do needs a name.")
+            // dismiss view controller
+            self.dismissViewControllerAnimated(true, completion: nil)
+        } catch let err as NSError {
+            print("\(err), \(err.userInfo)")
+            showAlertMessage("Warning", message: "Your to-do could not be saved.")
         }
     }
     
@@ -66,13 +66,13 @@ class AddTodoViewController: UIViewController {
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

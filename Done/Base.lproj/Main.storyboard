@@ -83,7 +83,7 @@
             </objects>
             <point key="canvasLocation" x="89.5" y="204.5"/>
         </scene>
-        <!--Title-->
+        <!--AddTodoViewController-->
         <scene sceneID="bgv-Vu-eUy">
             <objects>
                 <viewController storyboardIdentifier="AddTodoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LQM-m0-IDQ" customClass="AddTodoViewController" customModule="Done" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,20 +95,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ab-Pb-IKI">
-                                <rect key="frame" x="16" y="134" width="343" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkM-Lm-AaE">
+                                <rect key="frame" x="16" y="114" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7Ab-Pb-IKI" firstAttribute="leading" secondItem="cbi-WI-CpU" secondAttribute="leadingMargin" id="JxC-3p-nYG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7Ab-Pb-IKI" secondAttribute="trailing" id="fJC-pp-iTy"/>
-                            <constraint firstItem="7Ab-Pb-IKI" firstAttribute="top" secondItem="s8u-tY-5Q1" secondAttribute="bottom" constant="70" id="gG5-Ve-9Ud"/>
+                            <constraint firstItem="jkM-Lm-AaE" firstAttribute="leading" secondItem="cbi-WI-CpU" secondAttribute="leadingMargin" id="87O-MX-O2F"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jkM-Lm-AaE" secondAttribute="trailing" id="e5F-Gg-1WY"/>
+                            <constraint firstItem="jkM-Lm-AaE" firstAttribute="top" secondItem="s8u-tY-5Q1" secondAttribute="bottom" constant="50" id="gH2-Ld-kCc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="iCV-vC-BT2">
+                    <navigationItem key="navigationItem" title="AddTodoViewController" id="iCV-vC-BT2">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="QSD-3E-ktO">
                             <connections>
                                 <action selector="cancelButton:" destination="LQM-m0-IDQ" id="SWZ-Kl-AtK"/>
@@ -121,14 +122,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="textField" destination="7Ab-Pb-IKI" id="qTh-L5-3OV"/>
+                        <outlet property="nameLabel" destination="jkM-Lm-AaE" id="iTU-5v-Qlx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="joD-eQ-x61" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="970.5" y="204.5"/>
         </scene>
-        <!--Title-->
+        <!--UpdateToDoViewController-->
         <scene sceneID="YkT-vP-oDb">
             <objects>
                 <viewController storyboardIdentifier="UpdateToDoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aaD-2s-Tfk" customClass="UpdateToDoViewController" customModule="Done" customModuleProvider="target" sceneMemberID="viewController">
@@ -153,7 +154,7 @@
                             <constraint firstItem="I5S-EJ-am6" firstAttribute="leading" secondItem="oTj-bY-eV1" secondAttribute="leadingMargin" id="q2h-3q-1D5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="QUa-8Z-NEg">
+                    <navigationItem key="navigationItem" title="UpdateToDoViewController" id="QUa-8Z-NEg">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="8MS-M0-eOB">
                             <connections>
                                 <action selector="cancel:" destination="aaD-2s-Tfk" id="oAA-M5-Ls2"/>

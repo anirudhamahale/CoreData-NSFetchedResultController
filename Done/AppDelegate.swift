@@ -90,14 +90,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // URL Document directory
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        let applicationDocumentDirectory = urls.first
+        let applicationDocumentDirectory = urls[(urls.count - 1)]
         
         // URL persistant store
-        let URLPersistentStore = applicationDocumentDirectory?.URLByAppendingPathComponent("Done.sqlite")
+        let URLPersistentStore = applicationDocumentDirectory.URLByAppendingPathComponent("Done.sqlite")
         
         do {
+            // options
+            let options = [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true]
+            
             // Add persistent to persisten store coordinator
-            try persistantStoreCoordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: URLPersistentStore, options: nil)
+            try persistantStoreCoordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: URLPersistentStore, options: options)
         } catch {
             // Populate Error
             var userInfo = [String : AnyObject]()

@@ -19,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC182B031E0BDB9900D6C229 /* Done 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Done 2.xcdatamodel"; sourceTree = "<group>"; };
 		BC53EE311E0A6074009FDC76 /* Done.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Done.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC53EE341E0A6075009FDC76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC53EE361E0A6075009FDC76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -310,9 +311,10 @@
 		BC8AB6EE1E0A69B7005BA767 /* Done.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				BC182B031E0BDB9900D6C229 /* Done 2.xcdatamodel */,
 				BC8AB6EF1E0A69B7005BA767 /* Done.xcdatamodel */,
 			);
-			currentVersion = BC8AB6EF1E0A69B7005BA767 /* Done.xcdatamodel */;
+			currentVersion = BC182B031E0BDB9900D6C229 /* Done 2.xcdatamodel */;
 			path = Done.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

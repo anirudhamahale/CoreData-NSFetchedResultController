@@ -41,11 +41,12 @@ class AddTodoViewController: UIViewController {
         let entity = NSEntityDescription.entityForName("Item", inManagedObjectContext: self.managedObjectContext)
         
         // Initialize Record
-        let record = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: self.managedObjectContext)
+        let record: Item = Item(entity: entity!, insertIntoManagedObjectContext: self.managedObjectContext)
         
         // Populate Record
-        record.setValue(name, forKey: "name")
-        record.setValue(NSDate(), forKey: "createdAt")
+        record.name = name
+        record.createdAt = NSDate().timeIntervalSince1970
+        record.updatedAt = NSDate().timeIntervalSince1970
         
         do {
             // save record

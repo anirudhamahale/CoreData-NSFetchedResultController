@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC182B111E0BE5F100D6C229 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC182B0F1E0BE5F100D6C229 /* Item+CoreDataProperties.swift */; };
+		BC182B121E0BE5F100D6C229 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC182B101E0BE5F100D6C229 /* Item.swift */; };
 		BC53EE351E0A6075009FDC76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC53EE341E0A6075009FDC76 /* AppDelegate.swift */; };
 		BC53EE371E0A6075009FDC76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC53EE361E0A6075009FDC76 /* ViewController.swift */; };
 		BC53EE3A1E0A6075009FDC76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC53EE381E0A6075009FDC76 /* Main.storyboard */; };
@@ -20,6 +22,9 @@
 
 /* Begin PBXFileReference section */
 		BC182B031E0BDB9900D6C229 /* Done 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Done 2.xcdatamodel"; sourceTree = "<group>"; };
+		BC182B0F1E0BE5F100D6C229 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BC182B101E0BE5F100D6C229 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		BC182B131E0BEB2D00D6C229 /* Done 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Done 3.xcdatamodel"; sourceTree = "<group>"; };
 		BC53EE311E0A6074009FDC76 /* Done.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Done.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC53EE341E0A6075009FDC76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC53EE361E0A6075009FDC76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +78,8 @@
 				BC53EE3D1E0A6075009FDC76 /* LaunchScreen.storyboard */,
 				BC53EE401E0A6075009FDC76 /* Info.plist */,
 				BC8AB6EE1E0A69B7005BA767 /* Done.xcdatamodeld */,
+				BC182B0F1E0BE5F100D6C229 /* Item+CoreDataProperties.swift */,
+				BC182B101E0BE5F100D6C229 /* Item.swift */,
 			);
 			path = Done;
 			sourceTree = "<group>";
@@ -148,9 +155,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC182B111E0BE5F100D6C229 /* Item+CoreDataProperties.swift in Sources */,
 				BC8AB6F01E0A69B7005BA767 /* Done.xcdatamodeld in Sources */,
 				BC8AB6F41E0A72D7005BA767 /* AddTodoViewController.swift in Sources */,
 				BC53EE371E0A6075009FDC76 /* ViewController.swift in Sources */,
+				BC182B121E0BE5F100D6C229 /* Item.swift in Sources */,
 				BC8AB6F61E0A8CD8005BA767 /* UpdateToDoViewController.swift in Sources */,
 				BC53EE351E0A6075009FDC76 /* AppDelegate.swift in Sources */,
 				BC8AB6F21E0A7213005BA767 /* TodoCell.swift in Sources */,
@@ -266,10 +275,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Done/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "LA-Argon.Done";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -277,10 +289,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Done/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "LA-Argon.Done";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
@@ -311,10 +325,11 @@
 		BC8AB6EE1E0A69B7005BA767 /* Done.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				BC182B131E0BEB2D00D6C229 /* Done 3.xcdatamodel */,
 				BC182B031E0BDB9900D6C229 /* Done 2.xcdatamodel */,
 				BC8AB6EF1E0A69B7005BA767 /* Done.xcdatamodel */,
 			);
-			currentVersion = BC182B031E0BDB9900D6C229 /* Done 2.xcdatamodel */;
+			currentVersion = BC182B131E0BEB2D00D6C229 /* Done 3.xcdatamodel */;
 			path = Done.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

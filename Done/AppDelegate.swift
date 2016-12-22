@@ -96,22 +96,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let URLPersistentStore = applicationDocumentDirectory.URLByAppendingPathComponent("Done.sqlite")
         
         do {
-            // options
-            let options = [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true]
-            
             // Add persistent to persisten store coordinator
-            try persistantStoreCoordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: URLPersistentStore, options: options)
+            try persistantStoreCoordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: URLPersistentStore, options: nil)
         } catch {
             // Populate Error
-            var userInfo = [String : AnyObject]()
-            userInfo[NSLocalizedDescriptionKey] = "There was an error creating or loading the application's saved data."
-            userInfo[NSLocalizedFailureReasonErrorKey] = "There was an error creating or loading the application's saved data."
+            print("There was an error creating or loading the application's saved data.")
+            // abort()
             
-            userInfo[NSUnderlyingErrorKey] = error as NSError
-            let wrappeError = NSError(domain: "com.letsappit.Done", code: 1001, userInfo: userInfo)
-            print("Unresolved Error \(wrappeError),  \(wrappeError.userInfo)")
+            // Do LightWeight Migration
+            do {
+                // options
+                let options = [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true]
+                
+                // Add persistent to persisten store coordinator
+                try persistantStoreCoordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: URLPersistentStore, options: options)
+            } catch {
+                print("Can't perform lightweight Migration")
+                abort()
+            }
             
-            abort()
+            
         }
         return persistantStoreCoordinator
     }()

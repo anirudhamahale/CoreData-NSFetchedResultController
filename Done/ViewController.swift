@@ -43,21 +43,17 @@ class ViewController: UIViewController {
     
     func configureCell(cell:TodoCell, at indexPath: NSIndexPath) {
         // Fetch Record
-        let record = fetchedResultsController.objectAtIndexPath(indexPath)
+        let record = fetchedResultsController.objectAtIndexPath(indexPath) as! Item
         
         //Update Cell
-        if let name = record.valueForKey("name") as? String {
+        if let name = record.name {
             cell.name.text = name
         }
         
-        if let done = record.valueForKey("done") as? Bool {
-            cell.button.selected = done
-        }
+        cell.button.selected = record.done
         
         cell.didTapButtonHandler = {
-            if let done = record.valueForKey("done") as? Bool {
-                record.setValue(!done, forKey: "done")
-            }
+            record.done = !record.done
         }
     }
     
@@ -72,7 +68,7 @@ class ViewController: UIViewController {
             if let vc = segue.destinationViewController as? UpdateToDoViewController {
                 if let indexpath = tableView.indexPathForSelectedRow  {
                     // Fetch record 
-                    let record = fetchedResultsController.objectAtIndexPath(indexpath) as! NSManagedObject
+                    let record = fetchedResultsController.objectAtIndexPath(indexpath) as! Item
                     
                     // Configure view controller
                     vc.record = record
@@ -121,7 +117,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Fetch Records
-            let record = fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
+            let record = fetchedResultsController.objectAtIndexPath(indexPath) as! Item
             
             // Delete Records
             managedObjectContext.deleteObject(record)

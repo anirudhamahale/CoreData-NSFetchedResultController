@@ -11,14 +11,14 @@ import CoreData
 
 class UpdateToDoViewController: UIViewController {
 
-    var record: NSManagedObject!
+    var record: Item!
     var managedObjectContext: NSManagedObjectContext!
     
     @IBOutlet weak var textField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let name = record.valueForKey("name") as? String {
+        if let name = record.name {
             textField.text = name
         }
         // Do any additional setup after loading the view.
@@ -37,7 +37,7 @@ class UpdateToDoViewController: UIViewController {
         let name = textField.text
         if let isEmpty = name?.isEmpty where isEmpty == false {
             // update record
-            record.setValue(name, forKey: "name")
+            record.name = name
             
             do {
                 // save record

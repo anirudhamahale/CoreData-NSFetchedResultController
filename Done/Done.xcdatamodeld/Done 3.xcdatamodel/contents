@@ -5,8 +5,14 @@
         <attribute name="done" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="items" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="User" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="user" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Item" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="User" positionX="-63" positionY="9" width="128" height="75"/>
     </elements>
 </model>
